@@ -1,0 +1,35 @@
+package condition;
+
+public class Star04 {
+
+	public static void main(String[] args) {
+		/* ★ 그리기
+		 * 
+		 *     ★
+		 *    ★★★
+		 *   ★★★★★
+		 *  ★★★★★★★  
+		 */
+		int x = 6;		// 세로	
+		
+		for(int i = 1; i <= x; i++) {
+			for(int j = x; j > (x * 2) - 1; j--) {
+				if(j < x) {
+					System.out.print("a");
+				} else if(j > x) {
+					System.out.print("b");
+				}		
+				System.out.print("★");
+
+				
+				// 별은 i * 2 - 1만큼 생성
+				// 공백은 (x - (i *2 -1)) / 2 만큼 생성
+			}
+			System.out.println();
+		}
+		System.out.println("=================================");
+		
+		
+		
+	}	// End - public static void main(String[] args) 
+}	// End - public class Star04

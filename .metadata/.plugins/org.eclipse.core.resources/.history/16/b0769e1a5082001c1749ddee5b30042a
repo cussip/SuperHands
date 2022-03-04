@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>border.html</title>
+	<style>
+		p {
+			background: #CCC;
+			width: 150px;
+			height: 70px;
+			text-align: center;
+			line-height: 70px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 요소 박스의 테두를 지정한다. -->
+	<h1>border 속성</h1>
+	<p class="border01">
+		콘텐츠 영역
+	</p>
+	<p class="border02">
+		콘텐츠 영역
+	</p>
+	<p class="border03">
+		콘텐츠 영역
+	</p>
+	<p class="border04">
+		콘텐츠 영역
+	</p>
+</body>
+</html>

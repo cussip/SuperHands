@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>selftest.html</title>
+	<style>
+		/* 요소 선택자(Type Selector) */
+		h2 {
+			font-size: 1.1em;
+			color: rgba(255, 255, 0, 0.5);
+			background: #3333FF;
+		}
+		
+		/* 속성 선택자(Attribute Selector) */
+		[attri] {
+			text-decoration: line-through;
+			color: #AAAABB;
+		}
+		
+		/* 아이디 선택자(ID Selector) */
+		#idtest {
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		
+		/* 클래스 선택자(Class Selector) */
+		.classtest {
+			font-size: 1.1em;
+			font-weight: bold;
+		}
+		
+		/* 가상 클래스 선택자(Pseudo Class Selector) */
+		a:hover {
+			font-size: 1.1em;
+		}
+		a:link {
+			color: #0000FF;		
+		}
+		a:visited {
+			color: #FF0000;
+		}
+		a:focus {
+			color: #00FF00;
+		}
+		
+		/* 하위 선택자(Descendant Combination) */
+		.DCtest div {
+			color: #0099FF;
+			font-weight: bold;
+			background: #0000FF;
+		}
+		.DCtest p {
+			color: #110011;
+			text-decoration: underline;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1>요소 선택자(Type Selector)</h1>
+	<p>요소 선택자 연습</p>
+	<h2>요소 선택자 연습</h2><br/>
+	
+	<h1>속성 선택자(Attribute Selector)</h1>
+	<p>속성 선택자 연습</p>
+	<p attri="Attribute Selector Test">속성 선택자 연습</p><br/>
+	
+	<h1>아이디 선택자(ID selector)</h1>
+	<p>아이디 선택자 연습</p>
+	<p id="idtest">아이디 선택자 연습</p><br/>
+	
+	<h1>클래스 선택자(Class Selector)</h1>
+	<p>클래스 선택자 연습</p>
+	<p class="classtest"> 클래스 선택자 연습</p><br/>
+	
+	<h1>가상 클래스 선택자(Pseudo Class Selector)</h1>
+	<p>가상 클래스 선택자 연습</p>
+	<a href="https://www.naver.com">가상 클래스 선택자 연습</a><br/>
+	
+	<h1>하위 선택자(Descendant Combination)</h1>
+	<div class="DCtest">
+		<p>하위 선택자 연습</p>
+		<div>
+			<p>하위 선택자 연습</p>
+		</div>	
+	</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

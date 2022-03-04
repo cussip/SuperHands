@@ -1,0 +1,12 @@
+package inheritance;
+
+public class LoginServlet extends HttpServlet {
+	
+	LoginServlet() {
+		System.out.println("로그인합니다.");
+	}
+	
+	public void service() {
+		System.out.println("로그인합니다.");
+	}
+}

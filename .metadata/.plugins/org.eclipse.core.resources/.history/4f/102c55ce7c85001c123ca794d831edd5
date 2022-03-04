@@ -1,0 +1,10 @@
+package PrimitiveType;
+
+public class Question_4_1_ParityCalculate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

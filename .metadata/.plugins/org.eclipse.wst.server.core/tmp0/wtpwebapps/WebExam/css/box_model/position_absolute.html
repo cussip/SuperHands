@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>position_absolute.html</title>
+	<style>
+		h1 {
+			background: silver;
+			color: white;
+		}
+		p {
+			background: yellow;
+			padding: 10px;
+		}
+		.abs {
+			/* body 요소를 기준으로 top에서 200픽셀, left에서 100픽셀만큼 이동하여 배치 */
+			position: absolute;
+			top: 200px;
+			left: 100px;
+			width: 300px;
+			height: 100px;
+			background: aqua;
+		}
+	</style>
+</head>
+<body>
+	<h1>absolute position을 이용한 박스의 배치</h1>
+	<p class="abs">
+		박스의 위치를 지정할 때 사용할 수 있는 오프셋 속성으로는 
+		top, right, bottom, left가 있으며, 박스의 본래 위치를 기준으로 배치된다.
+	</p>
+	<p>
+		절대위치(absolute position) 지정방식으로 박스가 배치될 경우, 문서의 일반적인 흐름을
+		벗어나 배치되므로 다른 블록 요소의 배치에 영향을 주고 본문 요소와 겹칠수도 있습니다.
+	</p>
+</body>
+</html>

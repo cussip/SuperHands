@@ -1,0 +1,15 @@
+package condition;
+
+public class Star04 {
+
+	public static void main(String[] args) {
+		/* ★ 그리기
+		 * 
+		 *     ★
+		 *    ★★★
+		 *   ★★★★★
+		 *  ★★★★★★★  
+		 */
+
+	}	// End - public static void main(String[] args) 
+}	// End - public class Star04

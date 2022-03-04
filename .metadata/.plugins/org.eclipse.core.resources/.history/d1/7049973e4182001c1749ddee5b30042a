@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>text-indent.html</title>
+	<style>
+		p {
+			text-indent: 5em;
+		}
+	</style>
+</head>
+<body>
+	<!-- 단락의 첫 줄에 들여쓰기를 지정한다. -->
+	<h1>text-indent 속성</h1>
+	<p>
+		text-indent 속성을 사용하여 <br/>문단의 첫 줄 들여쓰기를 지정할 수 있다.
+	</p>
+	<p>
+		text-indent 속성을 사용하여 문단의 첫 줄 들여쓰기를 지정할 수 있다.
+	</p>
+	<p>
+		text-indent 속성을 사용하여 문단의 첫 줄 들여쓰기를 지정할 수 있다.
+	</p>
+	<p>
+		text-indent 속성을 사용하여 문단의 첫 줄 들여쓰기를 지정할 수 있다.
+	</p>
+	<p>
+		text-indent 속성을 사용하여 문단의 첫 줄 들여쓰기를 지정할 수 있다.
+	</p>
+
+</body>
+</html>

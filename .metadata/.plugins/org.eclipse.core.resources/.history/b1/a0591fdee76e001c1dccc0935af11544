@@ -1,0 +1,33 @@
+package network.chatting;
+
+//------------------------------------------------------------------
+//클라이언트로부터 전송된 문자열을 받아서 다른 클라이언트에게 문자열을 보내주는 스레드
+//------------------------------------------------------------------
+class EchoThread extends Thread {
+	Socket socket;
+	Vector<Socket> vec;
+	EchoThread() {
+		
+	}
+	
+	/* 클라이언트에게 메세지를 받으면, 연결된 다른 클라이언트에게 전달 */
+	public void run() {		
+		
+	}
+	
+	/* 전송받은 메세지를 다른 클라이언트에게 보내주는 메소드 */
+	
+	
+}//class EchoThread extends Thread 
+
+
+//------------------------------------------------------------------
+//
+//------------------------------------------------------------------
+
+public class MultiChatClient {
+
+	public static void main(String[] args) {
+		
+	}//public static void main(String[] args) 
+}//public class MultiChatClient 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>margin2.html</title>
+	<style>
+		p {
+			border: 1px solid red;
+			background: yellow;
+		}
+		.box1 {
+			margin: 20px;
+		}
+		.box2 {
+			margin: 20px 50px;
+		}
+		.box3 {
+			margin: 20px 50px 30px;
+		}
+		.box4 {
+			margin: 20px 30px 40px 70px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 마진이 겹치는 부분에서는 더 큰 마진으로만 구성 됨
+		상하에 배치된 두 테이블 중 상단의 테이블의 하단 마진이 50px이고
+		하단의 상단 마진이 70px 이면,
+		두 테이블 사이의 마진은 70px로 구성된다.
+		(마진은 더해서 구성되지 않는다. -->
+	<h1>margin 속성</h1>
+	<p class="box1">박스의 상하좌우에 20픽셀의 여백</p>
+	<p class="box2">박스의 상하에 20픽셀, 좌우에 50픽셀의 여백</p>
+	<p class="box3">박스의 상에 20픽셀, 좌우에 50픽셀, 하에 30픽셀의 여백</p>
+	<p class="box4">박스의 상에 20픽셀, 우에 30픽셀, 하에 40픽셀, 좌에 70픽셀의 여백</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+package network.chatting;
+
+public class MultiChatClient {
+
+}

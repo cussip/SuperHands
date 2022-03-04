@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>position_relative.html</title>
+	<style>
+		h1 {
+			background: silver;
+			color: white;
+		}
+		p {
+			background: yellow;
+			padding: 10px;
+		}
+		.rel {
+			position: relative;
+			top: 200px;
+			left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<h1>relative position을 이용한 박스의 배치</h1>
+	<p class="rel">
+		박스의 위치를 지정할 때 사용할 수 있는 오프셋 속성으로는 
+		top, right, bottom, left가 있으며, 박스의 본래 위치를 기준으로 배치된다.
+	</p>
+	<p>
+		상대위치(relative position) 지정방식으로 박스가 배치될 경우 다른 블록 요소의 배치에
+		영향을 주지 않고 배치가 됩니다.
+	</p>
+</body>
+</html>

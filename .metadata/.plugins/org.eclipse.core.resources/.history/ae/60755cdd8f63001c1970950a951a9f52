@@ -1,0 +1,10 @@
+package stream;
+
+public class DataInputOutputStreamExam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

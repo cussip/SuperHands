@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>background_image.html</title>
+	<style>
+		p {
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			font-weight: 20px;
+			border: 1px solid #000;
+			background-size: 50px 50px;
+			background-position: 150px 50px;
+			background-repeat: no-repeat;
+		}
+		.backimg {
+			background-image: url(images/exam01.jpg), url(images/exam02.jpg);
+		}
+	</style>
+</head>
+<body>
+	<h1>요소 박스에 배경 이미지를 지정</h1>
+	<h2>CSS3에서는 하나의 요소 박스에 여러 개의 배경 이미지를 지정할 수 있다.</h2>
+	<p class="backimg">
+		다중 배경 이미지 적용
+	</p>
+</body>
+</html>

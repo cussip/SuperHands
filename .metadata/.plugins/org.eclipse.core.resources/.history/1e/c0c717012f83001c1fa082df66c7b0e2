@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>box-shadow.html</title>
+</head>
+<body>
+	<h1>요소 박스에 그림자를 지정</h1>
+	<div class="inset">
+		
+	</div>
+	<div class="outset">
+	
+	</div>
+	<div class="blur">
+	
+	</div>
+	<div class="spread">
+	
+	</div>
+</body>
+</html>

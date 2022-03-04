@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>z_index.html</title>
+	<style>
+		div {
+			width: 300px;
+			border: #666 solid 3px;
+			padding: 10px;
+			height: 200px;
+			position: absolute;
+			font-weight: bold;
+			color: #FFF;
+			font-size: 2em;
+		}
+		.box01 {
+			top: 200px;
+			left: 150px;
+			z-index: 3;
+			background-color: rgba(255, 0, 0, 0.8);
+		}
+		.box02 {
+			top: 150px;
+			left: 100px;
+			z-index: 2;
+			background-color: rgba(0, 255, 0, 0.8);
+		}
+		.box03 {
+			top: 100px;
+			left: 50px;
+			z-index: 1;
+			background-color: rgba(0, 0, 255, 0.8);
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		position 속성 값이 static이 아닌 요소의 offset 관련 속성 값과 겹칠 경우,
+		겹치는 순서를 지정하는 속성
+	</h1>
+	<div class="box01">
+		box01
+	</div>
+	<div class="box02">
+		box02
+	</div>
+	<div class="box03">
+		box03
+	</div>
+</body>
+</html>

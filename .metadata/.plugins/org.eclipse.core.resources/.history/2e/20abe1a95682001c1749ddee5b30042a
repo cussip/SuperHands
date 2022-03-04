@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>padding2.html</title>
+</head>
+<body>
+	<h1>padding 속성</h1>
+	<p class="box1">박사의 상하좌우에 20픽셀을 안쪽 여백에 지정</p>
+	<p class="box2">박사의 상하에 20픽셀, 좌우에 20픽셀을 안쪽 여백에 지정</p>
+	<p class="box3">박사의 상에 20픽셀, 좌우에20픽셀, 하에 20픽셀을 안쪽 여백에 지정</p>
+	<p class="box4">박사의 상에 20픽셀, 우에 20픽셀, 하에 20픽셀, 좌에 20픽셀을 안쪽 여백에 지정</p>
+</body>
+</html>

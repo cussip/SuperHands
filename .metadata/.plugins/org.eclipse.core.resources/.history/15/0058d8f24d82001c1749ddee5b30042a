@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>padding.html</title>
+	
+</head>
+<body>
+	<!-- content 영역과 border 사이의 안쪽 여백을 지정한다. -->
+	<h1>padding 속성</h1>
+	<div class="padding01">
+		<p>콘텐츠 영역</p>
+	</div>
+	<div class="padding02">
+		<p>콘텐츠 영역</p>
+	</div>
+	<div class="padding03">
+		<p>콘텐츠 영역</p>
+	</div>
+	<div class="padding04">
+		<p>콘텐츠 영역</p>
+	</div>
+	<div class="padding05">
+		<p>콘텐츠 영역</p>
+	</div>
+</body>
+</html>

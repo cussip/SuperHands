@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>box_decoration_break.html</title>
+	<style>
+		div {
+			padding: 20px;
+			margin: 50px;
+			width: 400px;
+			font-weight: bold;	
+		}
+		span {
+			color: #FFF;
+			border: #000 solid 5px;
+			background: linear-gradient(to right, #1E5799 0%, #7DB9E8 100%);
+		}
+	</style>
+</head>
+<body>
+	<h1>
+		요소 박스가 페이지나 단으로 인해 나누어졌거나 인라인 요소가 자동 줄 바꿈 때문에 
+		나누어 졌을 경우, border나 padding을 추가할 것인지의 여부를 지정하는 속성
+	</h1>
+	<div class="slice">
+		box-decoration-break는 요소 박스가 페이지나 단으로 인해 나누어졌거나 
+		<span>인라인 요소가 자동 줄 바꿈 때문에 나누어 졌을 경우, border나
+		padding을 추가할 것인지의 여부를 지정</span>하는 속성
+	</div>
+	<div class="clone">
+		box-decoration-break는 요소 박스가 페이지나 단으로 인해 나누어졌거나 
+		<span>인라인 요소가 자동 줄 바꿈 때문에 나누어 졌을 경우, border나
+		padding을 추가할 것인지의 여부를 지정</span>하는 속성
+	</div>
+</body>
+</html>

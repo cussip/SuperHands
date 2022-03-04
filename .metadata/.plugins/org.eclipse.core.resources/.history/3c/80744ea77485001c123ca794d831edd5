@@ -1,0 +1,20 @@
+package PrimitiveType;
+
+public class exam01 {
+
+	public static void main(String[] args) {
+		System.out.println(countBits(100));
+	}
+	
+	public static short countBits(int x) {
+		short numBits = 0;
+		while (x != 0) {
+			numBits += ( x & 1);
+			System.out.println(numBits);
+			x >>>= 1;
+			System.out.println(x);
+		}
+		return numBits;
+	}
+	
+}

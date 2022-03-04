@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>margin2.html</title>
+</head>
+<body>
+	<!--  -->
+	<h1>margin 속성</h1>
+	<p class="box1">박스의 상하좌우에 20픽셀의 여백</p>
+	<p class="box2">박스의 상하에 20픽셀, 좌우에 50픽셀의 여백</p>
+	<p class="box3">박스의 상하좌우에 20픽셀의 여백</p>
+	<p class="box4">박스의 상하좌우에 20픽셀의 여백</p>
+	
+</body>
+</html>

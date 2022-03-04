@@ -1,0 +1,175 @@
+package oneMemo;
+
+import javax.swing.*;
+import javax.swing.tree.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.File;
+import java.nio.file.*;
+/*
+ * 패널을 만들어 원메모에 탑재
+ * 패널 좌 : 검색 트리
+ * 패널 우 : 메모 작성
+ * 
+ * 좌측의 트리(폴더)는 내가 직접 생성 가능하도록 구성
+ * 종료 시 자동저장
+ */
+//=============================================================================
+//public class OneMemo
+//=============================================================================
+public class OneMemo extends JFrame {
+	
+	//=============================================================================
+	//public static void main(String[] args)
+	//=============================================================================
+	public static void main(String[] args) {
+		new MainPanel();
+		
+	}//End - public static void main(String[] args)
+
+}//End - public class OneMemo
+
+
+//=============================================================================
+//class MainDisplay
+//=============================================================================
+class MainPanel extends JFrame {
+
+	
+	//=============================================================================
+	//class Save implements ActionListener
+	//=============================================================================
+	class Save implements ActionListener {
+		
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+		
+	}//End - class Save implements ActionListener
+	
+	
+	//=============================================================================
+	//MainPanel()
+	//=============================================================================
+	MainPanel() {
+		
+		setTitle("ONE & MEMO");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		
+		JPanel 	leftPanel 	= new JPanel();
+		JPanel 	rightPanel 	= new JPanel();
+		JPanel  upperPanel	= new JPanel();
+		
+		MenuPanel(upperPanel);
+		TreePanel(leftPanel);
+		
+		
+		/*
+		 * if문으로 구분하여 두 가지 텍스트를 표현하도록 추가한다
+		 * 텍스트파일을 선택한 경우, 제목과 내용을 포함하고 있는 텍스트 파일 호출
+		 * 폴더를 선택한 경우 해당 폴더 경로를 포함하고 있는 새로운 텍스트 파일 생성
+		 * 아무것도 선택하지 않은 경우 기본 폴더를 경로로 하여 새로운 텍스트파일 선택
+		 */
+		MemoPanel(rightPanel);
+
+		add(upperPanel, BorderLayout.NORTH);
+		add(leftPanel, BorderLayout.WEST);
+		add(rightPanel, BorderLayout.EAST);
+		
+		
+		setSize(800, 600);
+		setVisible(true);
+		
+	}//End - MainPanel()
+	
+	
+	//=============================================================================
+	//JPanel TreePanel
+	//=============================================================================
+	JPanel TreePanel(JPanel panel) {
+		
+		Path path = Paths.get("C:/Menu");
+		File file = new File(path.toString());
+		DefaultMutableTreeNode menu = new DefaultMutableTreeNode(path.getName(0));
+		DefaultMutableTreeNode lower = new DefaultMutableTreeNode("하위");
+		
+		JTree jt = new JTree(menu);
+		panel.add(jt);
+		menu.add(lower);
+		
+		return panel;
+	}//End - JPanel TreePanel()
+	
+	
+	//=============================================================================
+	//JPanel MemoPanel
+	//=============================================================================
+	
+	JPanel MemoPanel(JPanel panel) {
+		
+		
+		panel.setLayout(new BorderLayout());
+		
+		JTextField 	tf 			= new JTextField(40);
+		JTextArea 	ta 			= new JTextArea();
+		JButton 	saveBtn 	= new JButton("저장");
+		SaveText 	saveText 	= new SaveText(tf, ta);
+		Save 		save 		= new Save();
+		
+		panel.add(tf, BorderLayout.NORTH);
+		panel.add(ta, BorderLayout.CENTER);
+		panel.add(saveBtn, BorderLayout.SOUTH);
+		
+		saveBtn.addActionListener(save);
+		
+		/*
+		 * 세이브버튼을 선택할 시 
+		 * SaveText 를 호출하여 처리한다.
+		 */
+			
+		return panel;
+	}//End - JPanel MemoPanel()
+	
+	
+	//=============================================================================
+	//JPanel MenuPanel
+	//=============================================================================
+	JPanel MenuPanel(JPanel panel) {
+		
+		JLabel title = new JLabel("임수한의 메모장");		
+		panel.add(title);
+		
+		return panel;
+	}//End - JPanel MemoPanel()
+	
+}//End - class MainDisPlay
+
+
+//=============================================================================
+//class SaveText
+//=============================================================================
+class SaveText {
+	
+	SaveText(JTextField tf, JTextArea ta) {
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

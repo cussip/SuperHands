@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>margin.html</title>
+	<style>
+		div {
+			background: #FFAABB;
+			border: #F88 solid 4px;
+		}
+		.margin01 {
+			margin: 10px;
+		}
+		.margin02 {
+			margin: 10px 20px;
+		}
+		.margin03 {
+			margin: 10px 20px;
+		}
+		.margin04 {
+			margin: 10px 20px;
+		}
+		.margin05 {
+			margin: 10px 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- border를 기준으로 다른 요소와의 바깥쪽 여백을 지정한다.
+		속성 값에 음수를 지정할 수 있으며, 상하로 인접한 박스의 display 속성 값이 
+		block인 경우 마진 겹침(Margin Collapsing) 현상이 발생한다. -->
+	<h1>margin 속성</h1>
+	<div class="margin01">
+		<p>
+			콘텐츠 영역
+		</p>
+	</div>
+	<div class="margin02">
+		<p>
+			콘텐츠 영역
+		</p>
+	</div>
+	<div class="margin03">
+		<p>
+			콘텐츠 영역
+		</p>
+	</div>
+	<div class="margin04">
+		<p>
+			콘텐츠 영역
+		</p>
+	</div>
+	<div class="margin05">
+		<p>
+			콘텐츠 영역
+		</p>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

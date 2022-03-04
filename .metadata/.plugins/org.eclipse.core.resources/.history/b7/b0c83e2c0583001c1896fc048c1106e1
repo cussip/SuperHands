@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>background-repeat.html</title>
+	<style>
+		p {
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			font-weight: bold;
+			border: 1px solid #000;
+			background-size: 50px 50px;
+			background-image: url(images/exam01.jpg);
+		}
+		.backimg {
+		/* background-repeat: repeat, repeat-x, repeat-y, no-repeat
+								, space, round, inherit */
+			background-repeat: space;
+		}
+	</style>
+</head>
+<body>
+	<h1>배경 이미지의 반복 여부를 지정</h1>
+	<p class="backimg">
+		배경 이미지의 반복 여부
+	</p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>background_color.html</title>
+	<style>
+		p {
+			position: absolute;
+			width: 200px;
+			height: 100px;
+			padding: 20px;
+			font-weight: bold;
+		}
+		.box01 {
+			background: rgba(255, 0, 0, 0.3);
+			top: 100px;
+			left: 100px;
+		}
+		.box02 {
+			background: hsla(99, 55%, 55%, 0.7);
+		}
+	</style>
+</head>
+<body>
+	<h1>요소의 배경색을 지정</h1>
+	<p class="box01">요소 박스의 배경색을 적용</p>
+	<p class="box02">요소 박스의 배경색을 적용</p>
+</body>
+</html>

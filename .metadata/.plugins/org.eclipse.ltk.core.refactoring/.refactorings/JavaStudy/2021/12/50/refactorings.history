@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;array.EvenManOddMin&apos; to &apos;EvenMaxOddMin&apos;&#x0D;&#x0A;- Original project: &apos;JavaStudy&apos;&#x0D;&#x0A;- Original element: &apos;array.EvenManOddMin&apos;&#x0D;&#x0A;- Renamed element: &apos;array.EvenMaxOddMin&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EvenManOddMin&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;array{EvenManOddMin.java[EvenManOddMin" matchStrategy="1" name="EvenMaxOddMin" qualified="false" references="true" similarDeclarations="false" stamp="1639121741861" textual="false" version="1.0"/>
+</session>

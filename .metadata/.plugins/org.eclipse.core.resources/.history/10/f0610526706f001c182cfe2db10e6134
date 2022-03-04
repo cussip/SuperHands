@@ -1,0 +1,276 @@
+package oneMemo;
+
+import javax.swing.*;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.nio.file.*;
+
+//=============================================================================
+//public class OneMemo
+//=============================================================================
+public class OneMemo extends JFrame {	
+	
+	//=============================================================================
+	//public static void main(String[] args)
+	//=============================================================================
+	public static void main(String[] args) {
+		new MainPanel();
+	
+	}//public static void main(String[] args)
+	
+}//public class OneMemo
+
+
+//=============================================================================
+//class MainDisplay
+//=============================================================================
+class MainPanel extends JFrame {
+	
+	JTextField 	tf 			= new JTextField(40);
+	JTextArea 	ta 			= new JTextArea();
+	static File selectedNode;
+	
+	//=============================================================================
+	//class TreeSelection implements TreeSelectionListener 
+	//=============================================================================
+	class TreeSelection implements TreeSelectionListener {
+					
+		@Override
+		public void valueChanged(TreeSelectionEvent e) {			
+			
+			String baseLoca = "C:/";
+			String seleLoca = "";
+			String text = "";
+			StringBuilder sb = new StringBuilder();
+
+			int count = e.getPath().getPathCount();
+			for(int i = 0; i < count; i++) {
+				seleLoca += e.getPath().getPathComponent(i) + "/";
+			}
+
+			selectedNode = new File(baseLoca + seleLoca);
+			
+			/* 선택한 노드가 폴더일 경우, tf와 ta를 공백으로 만든다. */
+			if(selectedNode.isDirectory()) {
+				tf.setText("");
+				ta.setText("");
+				tf.setEnabled(true);		
+				ta.setEnabled(true);
+				
+			/* 선택한 노드가 파일일 경우, 파일명과 파일내용을 불러와 tf와 ta에 덮어쓴다.	*/
+			} else if(selectedNode.isFile()) {		
+				try {			
+					FileReader 		fileReader 		= new FileReader(baseLoca + seleLoca);
+					BufferedReader 	bufferedReader 	= new BufferedReader(fileReader);
+					String title = e.getPath().getPathComponent(count - 1).toString();
+					String newTitle = title.substring(0, title.lastIndexOf("."));
+									
+					tf.setText(newTitle);
+					tf.setEnabled(false);
+					
+					while((text = bufferedReader.readLine()) != null) {
+						sb.append(text + "\n");
+					}
+					
+					ta.setText(sb.toString());					
+				} catch(Exception e1) {
+					e1.getStackTrace();
+				}
+			
+			}//else if(testFile.isFile())	
+		}//public void valueChanged(TreeSelectionEvent e)
+	}//class TreeSelection implements TreeSelectionListener 
+	
+	
+	//=============================================================================
+	//class Save implements ActionListener
+	//=============================================================================
+	class Save implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			if(selectedNode.isDirectory()) {
+				System.out.println("selectedNode: " + selectedNode);
+				File newTxt = new File(selectedNode.toString() + "/" + tf.getText() + ".txt/");
+				System.out.println("newTxt: " + newTxt);
+				try {
+					newTxt.createNewFile();
+					FileOutputStream fos = new FileOutputStream(newTxt);
+					OutputStreamWriter writer = new OutputStreamWriter(fos);
+					writer.write(ta.getText());
+					writer.close();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			} else if((selectedNode.isFile())) {	
+				System.out.println("파일: " + selectedNode);
+				try {				
+					File editTxt = selectedNode;
+					FileOutputStream fos = new FileOutputStream(editTxt);
+					OutputStreamWriter writer = new OutputStreamWriter(fos);
+					writer.write(ta.getText());
+					writer.close();
+				} catch (Exception e1) {
+					e1.getStackTrace();
+				}				
+			}
+			
+		}//public void actionPerformed(ActionEvent e)
+	}//class Save implements ActionListener
+	
+	
+	//=============================================================================
+	//
+	//=============================================================================
+	class Delete implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			selectedNode.delete();
+			
+		}//public void actionPerformed(ActionEvent e) 
+	}//class Delete implements ActionListener 
+	
+	//=============================================================================
+	//MainPanel()
+	//=============================================================================
+	MainPanel() {
+		
+		setTitle("ONE & MEMO");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		
+		JPanel 	leftPanel 	= new JPanel();
+		JPanel 	rightPanel 	= new JPanel();
+		JPanel  upperPanel	= new JPanel();
+		
+		MenuPanel(upperPanel);
+		TreePanel(leftPanel);
+		
+		/*
+		 * if문으로 구분하여 두 가지 텍스트를 표현하도록 추가한다
+		 * 텍스트파일을 선택한 경우, 제목과 내용을 포함하고 있는 텍스트 파일 호출
+		 * 폴더를 선택한 경우 해당 폴더 경로를 포함하고 있는 새로운 텍스트 파일 생성
+		 * 아무것도 선택하지 않은 경우 기본 폴더를 경로로 하여 새로운 텍스트파일 선택
+		 */
+		
+		MemoPanel(rightPanel);
+
+		add(upperPanel, BorderLayout.NORTH);
+		add(leftPanel, BorderLayout.WEST);
+		add(rightPanel, BorderLayout.EAST);	
+		
+		setSize(800, 600);
+		setVisible(true);
+		
+	}//MainPanel()
+	
+	
+	//=============================================================================
+	//JPanel TreePanel
+	//=============================================================================
+	JPanel TreePanel(JPanel panel) {
+		
+		Path 					path 		= Paths.get("C:/Memo");
+		File[] 					mainFiles 	= path.toFile().listFiles();
+		DefaultMutableTreeNode 	mainDirList = new DefaultMutableTreeNode(path.getFileName());
+		JTree 					jt 			= new JTree(mainDirList);
+		TreeSelection			selection 	= new TreeSelection();
+		JButton					delMemoBtn  = new JButton("삭제");
+		Delete					delete		= new Delete();
+		
+		panel.setLayout(new BorderLayout());
+		panel.add(jt, BorderLayout.NORTH);
+		panel.add(delMemoBtn, BorderLayout.SOUTH);
+		delMemoBtn.addActionListener(delete);
+		panel.setBackground(new Color(120, 57, 81));
+		
+		for(int i = 0; i < mainFiles.length; i++) {
+			path = Paths.get(mainFiles[i].toString());
+			File[] subFiles = path.toFile().listFiles();		
+			DefaultMutableTreeNode firstDirList = new DefaultMutableTreeNode(path.getFileName());
+
+			mainDirList.add(firstDirList);
+		
+			if(mainFiles[i].isDirectory() == true) {
+				for(int j = 0; j < subFiles.length; j++) {
+					path = Paths.get(subFiles[j].toString());
+					DefaultMutableTreeNode secondDirList = new DefaultMutableTreeNode(path.getFileName());
+					firstDirList.add(secondDirList);										
+				}
+			}			
+		}
+		if(jt != null) { jt.addTreeSelectionListener(selection); }	
+				return panel;
+		
+	}//JPanel TreePanel()
+	
+	/*
+	 * 클릭한 폴더가 있을 경우 해당 폴더의 위치 정보를 받아서 메모를 저장
+	 * 클릭한 폴더가 없을 경우나 메모 폴더를 선택한 경우는 기본 경로에 저장
+	 * 파일을 선택한 경우 해당 파일의 내용을 표시
+	 * 단. 파일을 선택한 경우 제목은 수정할 수 없도록 처리
+	 */
+	
+	//=============================================================================
+	//JPanel MemoPanel
+	//======================== =====================================================
+	
+	JPanel MemoPanel(JPanel panel) {
+			
+		panel.setLayout(new BorderLayout());
+		
+		JButton 	saveBtn 	= new JButton("저장");
+		Save 		save 		= new Save();
+		
+		panel.add(tf, BorderLayout.NORTH);
+		panel.add(ta, BorderLayout.CENTER);
+		panel.add(saveBtn, BorderLayout.EAST);
+		
+		saveBtn.addActionListener(save);	
+		
+		tf.setEnabled(false);
+		ta.setEnabled(false);
+		
+		return panel;
+
+	}//JPanel MemoPanel()
+	
+	
+	//=============================================================================
+	//JPanel MenuPanel
+	//=============================================================================
+	JPanel MenuPanel(JPanel panel) {
+		
+		JLabel title = new JLabel("One & Memo");		
+		panel.add(title);
+		
+		return panel;
+		
+	}//JPanel MemoPanel()
+	
+}//class MainDisPlay
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

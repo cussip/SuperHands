@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>calc.html</title>
+	<style>
+		.main {
+			color: grey;
+			font-size: 20px;
+		}
+		.btn {
+			font-size: 45px;
+		}
+	</style>
+</head>
+<body>
+	<form action="No27" method="post">
+		<div class="main">
+			<label>입력 : </label>
+			<input type="text" name="v" placeholder="num">
+		</div>
+		<br><hr>
+		<div class="btn">
+			<input type="submit" name="operator" value="+" style="width: 25pt; height: 25pt">
+			<input type="submit" name="operator" value="-" style="width: 25pt; height: 25pt">
+			<input type="submit" name="operator" value="=" style="width: 25pt; height: 25pt">
+			<!--
+				No24 
+				Plus 버튼과 Minus 버튼의 구분을 위하여 name을 추가 입력
+				name이 붙어있는 값들은 서버로 전달되게 된다.
+			 -->
+		</div>
+	</form>
+</body>
+</html>

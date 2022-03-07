@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>calc.html</title>
+	<style>
+		.main {
+			color: grey;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form action="No23" method="post">
+		<div class="main">
+			<label>두 수의 합 계산</label><br>
+			<input type="number" name="num1" placeholder="num1">
+			<input type="number" name="num2" placeholder="num2">
+		</div>
+		<hr>
+		<div>
+			<input type="submit" name="operator" value="Plus" style="width: 150pt; height: 50pt">
+			<input type="submit" name="operator" value="Minus" style="width: 150pt; height: 50pt">
+			<!-- 
+				Plus 버튼과 Minus 버튼의 구분을 위하여 name을 추가 입력
+				name이 붙어있는 값들은 서버로 전달되게 된다.
+			 -->
+		</div>
+	</form>
+</body>
+</html>

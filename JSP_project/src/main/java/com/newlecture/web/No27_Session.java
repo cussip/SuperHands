@@ -80,6 +80,7 @@ public class No27_Session extends HttpServlet {
 		 * 동일한 SID로 접근하면 같은 사용자가 접근한 것으로 인식하기 때문에 보안상 관리가 필요
 		 * Session에는 타임아웃을 설정하는 것이 가능하다(기본 30분)
 		 */
+		
 		int v = 0;		
 		if(!v_.equals("")) { v = Integer.parseInt(v_); }
 		

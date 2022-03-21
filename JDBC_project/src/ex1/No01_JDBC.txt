@@ -1,0 +1,14 @@
+JDBC란 무엇인가?
+
+	• SQL을 작성할 수 없는 사람도 UI를 통하여 DBMS에 접속하는 것이 가능해야 한다.
+	• SQL이 완전히 동일하다고 하여도 Oracle, MS SQL 등 DBMS에 따라 제대로 작동하지 않을 수 있다.
+	
+	• JDBC(Java Database Connectivity) : DBMS와 UI 사이에서 작동하는 라이브러리의 일종
+	• JDBC는 UI에서 DBMS로 직접 연걸하는 것이 아닌 JDBC로 전달한 후 JDBC에서 DBMS로 전달하는 과정을 형성한다.
+	• 따라서, 개발자는 JDBC만 바라보면서 개발을 해도 무방하다
+	• JDBC 이용순서
+		a. 드라이버 로드하기
+		b. 연결 생성하기
+		c. 문장 실행하기
+		d. 결과집합 사용하기
+

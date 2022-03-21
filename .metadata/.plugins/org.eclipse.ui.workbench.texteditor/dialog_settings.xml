@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="reader"/>
 			<item value="&quot;"/>
 			<item value="mainFiles"/>
 			<item value="str"/>
@@ -22,9 +23,9 @@
 			<item value="=primary"/>
 			<item value="data"/>
 			<item value="condensed"/>
-			<item value="gblTf"/>
 		</list>
 		<list key="replacehistory">
+			<item value="W"/>
 			<item value="\&quot;"/>
 			<item value="ch"/>
 			<item value="stu"/>
@@ -39,7 +40,6 @@
 			<item value="gblTf"/>
 			<item value="2"/>
 			<item value="DropShip"/>
-			<item value="Air"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

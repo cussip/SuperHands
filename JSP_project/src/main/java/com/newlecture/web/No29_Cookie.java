@@ -27,7 +27,7 @@ public class No29_Cookie extends HttpServlet {
 //		ServletContext application = request.getServletContext();
 //		HttpSession session = request.getSession();
 		Cookie[] cookies = request.getCookies();
-		
+	
 //		String numArr[] = request.getParameterValues("num");
 				
 		/* No29_Cookie
@@ -102,3 +102,7 @@ public class No29_Cookie extends HttpServlet {
 	}
 }
 		
+
+
+
+

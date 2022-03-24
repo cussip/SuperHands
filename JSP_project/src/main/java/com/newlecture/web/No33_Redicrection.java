@@ -115,7 +115,7 @@ public class No33_Redicrection extends HttpServlet {
 			response.addCookie(valueCookie);
 			response.addCookie(operatorCookie);
 			
-			/* application, session, cookie 정리
+			/* No32_application, session, cookie 정리
 			 * application
 			 * 		사용범위: 전역 범위에서 사용하는 저장공간
 			 * 		생명주기: WAS가 시작해서 종료할 떄 까지
@@ -134,7 +134,7 @@ public class No33_Redicrection extends HttpServlet {
 			 */
 			
 			response.sendRedirect("calc2.html");
-			/* No32_Redirection
+			/* No33_Redirection
 			 * 백지가 나오는 No32 페이지를 calc2.html 페이지로 다시 연결
 			 */
 		

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SelfCalculator</title>
+	<style>	
+		.main {
+			height: 30pt;
+			width: 200pt;
+			font-size: 20px;
+			text-align: left;
+		}
+		.main input {
+			height: 20pt;
+		}
+		.btn input {
+			font-size: 20px;
+			font-weight: bold;
+			height: 30pt;
+			width: 50pt;
+		}
+	</style>
+</head>
+<body>
+	<form action="calccookie" method="post">
+		<div class="main">
+			<label>입력: </label>
+			<input type="text" name="num" placeholder="type">	
+		</div>
+		<table class="btn">
+			<tr>
+				<td><input type="submit" name="oper" value="+"></td>
+				<td><input type="submit" name="oper" value="-"></td>
+				<td><input type="submit" name="oper" value="*"></td>
+				<td><input type="submit" name="oper" value="/"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="oper" value="="></td>
+				<td><input type="submit" name="oper" value="C"></td>
+			</tr>
+		</table>
+		<br><hr><br>
+		<div>
+			<h1>정답: </h1>
+		</div>	
+	</form>
+</body>
+</html>

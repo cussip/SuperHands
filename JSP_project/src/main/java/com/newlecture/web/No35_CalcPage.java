@@ -17,11 +17,15 @@ public class No35_CalcPage extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 				throws ServletException, IOException {
 		
+		/* No36_계산기 서블릿 완성하기
+		 * 동적인 페이지 구현
+		 * No35_Calc3.java에서 구현된 데이터를 쿠키로 받아와서 페이지로 출력하는 역할
+		 */
 		Cookie[] cookies = request.getCookies(); 
 		String exp = "0";
 		if(cookies != null) {			
 			for(Cookie c : cookies) {				
-				if(c.getName().equals("value")) {
+				if(c.getName().equals("exp")) {
 					exp = c.getValue();
 					break;
 				}
@@ -63,13 +67,13 @@ public class No35_CalcPage extends HttpServlet {
 		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"CE\"></td>");
 		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"C\"></td>");
 		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"BS\"></td>");
-		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"÷\"></td>");
+		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"/\"></td>");
 		out.write("		</tr>");
 		out.write("		<tr>");
 		out.write("			<td><input type=\"submit\" name=\"value\" value=\"7\"></td>");
 		out.write("			<td><input type=\"submit\" name=\"value\" value=\"8\"></td>");
 		out.write("			<td><input type=\"submit\" name=\"value\" value=\"9\"></td>");
-		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"X\"></td>");
+		out.write("			<td><input type=\"submit\" name=\"operator\" value=\"*\"></td>");
 		out.write("		</tr>");
 		out.write("		<tr>");
 		out.write("			<td><input type=\"submit\" name=\"value\" value=\"4\"></td>");

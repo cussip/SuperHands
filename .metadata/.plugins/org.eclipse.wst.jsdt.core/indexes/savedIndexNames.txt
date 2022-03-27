@@ -6,5 +6,4 @@ INDEX VERSION 1.4+C:\Users\ishcj\Documents\SuperHands\.metadata\.plugins\org.ecl
 1444933046.index
 492424344.index
 1760232014.index
-3803950651.index
 1926601014.index

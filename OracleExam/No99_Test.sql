@@ -46,3 +46,6 @@ WHERE " + searchField + " LIKE %?%;
 
 select count(title) count from notice
 where title like '%Á¦¸ñ%';
+
+
+commit;

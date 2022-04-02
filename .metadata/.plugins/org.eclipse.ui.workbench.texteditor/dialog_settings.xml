@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="qu"/>
+		<item key="selection" value="ht"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="height"/>
+			<item value="weight"/>
+			<item value="comment"/>
+			<item value="query"/>
+			<item value="field"/>
 			<item value="stack"/>
 			<item value="detail.html"/>
 			<item value="model"/>
@@ -18,13 +23,13 @@
 			<item value="str"/>
 			<item value="pointArr"/>
 			<item value="stuNum"/>
-			<item value="preNum"/>
-			<item value="gradeNum"/>
-			<item value="br"/>
-			<item value="$"/>
-			<item value="heading "/>
 		</list>
 		<list key="replacehistory">
+			<item value="ht"/>
+			<item value="wt"/>
+			<item value="cmt"/>
+			<item value="page"/>
+			<item value="query"/>
 			<item value="qu"/>
 			<item value="result"/>
 			<item value=""/>
@@ -35,11 +40,6 @@
 			<item value="pre"/>
 			<item value="5"/>
 			<item value="sc"/>
-			<item value="%"/>
-			<item value="-primary"/>
-			<item value="d"/>
-			<item value="expanded"/>
-			<item value="gblTa"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

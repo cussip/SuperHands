@@ -48,7 +48,7 @@ public class ListController extends HttpServlet {
 		}
 		
 		NoticeService service = new NoticeService();
-		List<NoticeCmtView> list = service.getNoticeList(field, query, page);
+		List<NoticeCmtView> list = service.getNoticePubList(field, query, page);
 		int count = service.getNoticeCount(field, query);
 		
 		request.setAttribute("list", list);

@@ -145,13 +145,22 @@ SELECT * FROM (
 ) 
 WHERE num BETWEEN 1 AND 5;
 
-SELECT * FROM notice;
+SELECT id, title, pub FROM notice where id > 225;
 
-UPDATE notice SET pub=1 WHERE id IN (230, 231);
+INSERT INTO NOTICE(title, content, writer_id, pub)
+values ('테스트 제목', '테스트 내용', 'ishcjswo', 1);
+commit;
 
-
-
-
-
+SELECT * FROM 
+    (  
+    SELECT ROWNUM NUM, N.*  FROM 
+        (
+        SELECT * FROM NOTICE_CMT_VIEW  
+        WHERE title LIKE '%%' 
+        ORDER BY REGDATE DESC
+        ) N
+    WHERE pub = 1
+    )  
+WHERE NUM BETWEEN 1 AND 10  ;
 
 

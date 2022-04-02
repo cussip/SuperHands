@@ -89,7 +89,7 @@
                             <li><a href="/notice/list.html"><img src="/images/txt-customer.png" alt="고객센터" /></a></li>
                         </ul>
                     </nav>
-
+ 
                 </div>
             </section>
 
@@ -148,7 +148,7 @@
                     </ul>
                 </div>
 
-                <form method="post" action="reg">
+                <form method="post" enctype="multipart/form-data">
                     <div class="margin-top first">
                         <h3 class="hidden">공지사항 입력</h3>
                         <table class="table">
@@ -160,6 +160,11 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>첨부파일</th>
+                                    <td colspan="3" class="text-align-left text-indent"><input type="file"
+                                            name="file" /> </td>
+                                </tr>  
+                                <tr>                                                           
                                     <th>첨부파일</th>
                                     <td colspan="3" class="text-align-left text-indent"><input type="file"
                                             name="file" /> </td>

@@ -10,8 +10,8 @@ public class NoticeCmtView extends Notice {
 		super();
 	}
 
-	public NoticeCmtView(int id, String title, Date regdate, String writerId, String hit, String files, int cmt) {
-		super(id, title, regdate, writerId, hit, files, "");
+	public NoticeCmtView(int id, String title, Date regdate, String writerId, String hit, String files, boolean pub, int cmt) {
+		super(id, title, regdate, writerId, hit, files, "", pub);
 		this.cmt = cmt;
 	}
 

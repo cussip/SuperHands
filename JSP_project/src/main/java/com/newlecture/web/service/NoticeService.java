@@ -53,7 +53,33 @@ public class NoticeService {
 	
 	public int insertNotice(Notice notice) {
 		
-		return 0;
+		int result = 0;		
+		
+		String sql = " INSERT INTO NOTICE(title, content, writer_id, pub, files) "
+				+ " values (?, ?, ?, ?, ?) ";		
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con  = DriverManager.getConnection(url, "cussip", "xoch2380");
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, notice.getTitle());
+			st.setString(2, notice.getContent());
+			st.setString(3, notice.getWriterId());
+			st.setBoolean(4, notice.getPub());
+			st.setString(5, notice.getFiles());
+			
+			result = st.executeUpdate();
+
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public int deleteNotcie(int id) {
@@ -111,6 +137,7 @@ public class NoticeService {
 				String writerId = rs.getString("writer_id");
 				String hit = rs.getString("hit");
 				String files = rs.getString("files");
+				boolean pub = rs.getBoolean("pub");
 				int cmt = rs.getInt("cmt");
 				
 				NoticeCmtView notice = new NoticeCmtView(
@@ -119,7 +146,69 @@ public class NoticeService {
 						regdate, 
 						writerId, 
 						hit, 
-						files, 
+						files,
+						pub,
+						cmt
+					);
+				list.add(notice);
+			}
+			
+			rs.close();
+			st.close();
+			con.close();
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public List<NoticeCmtView> getNoticePubList(String field, String query, int page) {
+		
+		List<NoticeCmtView> list = new ArrayList<>();
+		
+		String sql = " SELECT * FROM ( "
+				+ "    SELECT ROWNUM NUM, N.* "
+				+ "    FROM (SELECT * FROM NOTICE_CMT_VIEW "
+				+ "			 WHERE " + field + " LIKE ? "
+				+ "			 ORDER BY REGDATE DESC) N "
+				+ " WHERE pub = 1 "
+				+ " ) "
+				+ " WHERE NUM BETWEEN ? AND ? ";
+		
+		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection(url, "cussip", "xoch2380");
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1, "%"+query+"%");
+			st.setInt(2, 1+(page-1)*10);
+			st.setInt(3, page*10);
+			
+			ResultSet rs = st.executeQuery();
+			
+			while(rs.next()) { 			
+				int id = rs.getInt("id");
+				String title = rs.getString("title");
+				Date regdate = rs.getDate("regdate");
+				String writerId = rs.getString("writer_id");
+				String hit = rs.getString("hit");
+				String files = rs.getString("files");
+				boolean pub = rs.getBoolean("pub");
+				int cmt = rs.getInt("cmt");
+				
+				NoticeCmtView notice = new NoticeCmtView(
+						id, 
+						title, 
+						regdate, 
+						writerId, 
+						hit, 
+						files,
+						pub,
 						cmt
 					);
 				list.add(notice);
@@ -200,6 +289,7 @@ public class NoticeService {
 				String hit = rs.getString("hit");
 				String files = rs.getString("files");
 				String content = rs.getString("content");
+				boolean pub = rs.getBoolean("pub");
 
 				notice = new Notice(
 						nid, 
@@ -208,7 +298,8 @@ public class NoticeService {
 						writerId, 
 						hit, 
 						files, 
-						content
+						content,
+						pub
 					);
 			}
 			
@@ -252,7 +343,8 @@ public class NoticeService {
 				String hit = rs.getString("hit");
 				String files = rs.getString("files");
 				String content = rs.getString("content");
-				
+				boolean pub = rs.getBoolean("pub");
+
 				notice = new Notice(
 						nid, 
 						title, 
@@ -260,7 +352,8 @@ public class NoticeService {
 						writerId, 
 						hit, 
 						files, 
-						content
+						content,
+						pub
 					);
 			}		
 			rs.close();
@@ -302,7 +395,8 @@ public class NoticeService {
 				String hit = rs.getString("hit");
 				String files = rs.getString("files");
 				String content = rs.getString("content");
-				
+				boolean pub = rs.getBoolean("pub");
+
 				notice = new Notice(
 						nid, 
 						title, 
@@ -310,7 +404,8 @@ public class NoticeService {
 						writerId, 
 						hit, 
 						files, 
-						content
+						content,
+						pub
 					);
 			}			
 			rs.close();

@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import gemo.entity.GemoNotice;
+import gemo.entity.GemoMemo;
 import gemo.entity.GemoSection;
 
 public class GemoService {
@@ -21,6 +21,7 @@ public class GemoService {
 		
 		String sql = " SELECT * FROM memo ";		
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+		System.out.println(sql);
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -28,28 +29,19 @@ public class GemoService {
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			
-			while(rs.next()) {
-				
+			while(rs.next()) {				
+				int sectionId = rs.getInt("section_id");
 				int id = rs.getInt("id");
 				String title = rs.getString("title");
-				Date regdate = rs.getDate("regdate");
-				String writerId = rs.getString("writer_id");
-				String hit = rs.getString("hit");
-				String files = rs.getString("files");
 				String content = rs.getString("content");
-				boolean pub = rs.getBoolean("pub");
 				
-				GemoNotice notice = new GemoNotice(
-						id, 
+				GemoMemo memo = new GemoMemo(
+						sectionId, 
+						id,
 						title, 
-						regdate, 
-						writerId, 
-						hit, 
-						files, 
-						content, 
-						pub
+						content
 						);
-				list.add(notice);
+				list.add(memo);
 			}	
 			rs.close();
 			st.close();

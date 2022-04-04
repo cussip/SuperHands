@@ -33,7 +33,7 @@
 		<div class="d-grid gap-3">
 			<table class="form-control">
 				<tr class="section">
-					<c:forEach var="s" items="${s}">
+					<c:forEach var="s" items="${section}">
 					<th type="button"> ${s.title} </th>
 					</c:forEach>
 				</tr>						
@@ -45,10 +45,9 @@
 	<div class="container-fluid pb-3">
 		<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height: 500px">
 		    <table class="form-control">
-		    	<c:forEach var="m" items="${m}">
+		    	<c:forEach var="m" items="${memo}">
 		    	<tr>
-		    		<td>${m.title}</td>
-		    		<td></td>
+		    		<td class="form-control">${m.title}</td>
 				</tr> 			 
   			    </c:forEach>  			      			      			      			    
 		    </table>

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import gemo.GemoService;
-import gemo.entity.GemoNotice;
+import gemo.entity.GemoMemo;
 import gemo.entity.GemoSection;
 
 @WebServlet("/gemo/main")
@@ -24,8 +24,8 @@ public class Controller extends HttpServlet {
 		List<GemoMemo> memoList = service.getMemoList();
 		List<GemoSection> sectionList = service.getSectionList();
 		
-		request.setAttribute("m", memoList);
-		request.setAttribute("s", sectionList);
+		request.setAttribute("memo", memoList);
+		request.setAttribute("section", sectionList);
 		
 		request
 		.getRequestDispatcher("/WEB-INF/gemo.jsp")

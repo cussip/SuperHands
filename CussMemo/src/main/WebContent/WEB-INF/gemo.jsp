@@ -11,9 +11,10 @@
 	<meta charset="UTF-8">
 	<title>Gemo</title>
 	<style>
-		.section th {
-			background-color: lime;
-			border: solid;
+		.sectionspace {
+			background-color: purple;
+			display: flex;
+			padding: 2px;
 		}
 	</style>
 </head>
@@ -29,26 +30,24 @@
 	</header>
 	
 	<!-- 섹션 분류 공간 -->
-	<div class="container-fluid pd-3">
-		<div class="d-grid gap-3">
-			<table class="form-control">
-				<tr class="section">
-					<c:forEach var="s" items="${section}">
-					<th type="button"> ${s.title} </th>
-					</c:forEach>
-				</tr>						
-			</table>	
-		</div> 
-	</div>
+	<form action="/gemo/main" method="post">
+		<div class="sectionspace">
+			<c:forEach var="s" items="${sectionlist}">
+				<input class="form-control" type="button" name="sect" value="${s.title}">
+			</c:forEach>
+		</div>
+	</form>
 	
 	<!-- 메모 분류 공간 -->
-	<div class="container-fluid pb-3">
+	<div class="memospace">
 		<div class="d-grid gap-3" style="grid-template-columns: 1fr 2fr; height: 500px">
 		    <table class="form-control">
-		    	<c:forEach var="m" items="${memo}">
-		    	<tr>
-		    		<td class="form-control">${m.title}</td>
-				</tr> 			 
+		    	<c:forEach var="m" items="${memolist}">
+			    	<tr>
+			    		<td>
+			    			<button type="submit" class="form-control" value="${m.id}">${m.title}</button>
+			    		</td>
+					</tr> 			 
   			    </c:forEach>  			      			      			      			    
 		    </table>
 		    

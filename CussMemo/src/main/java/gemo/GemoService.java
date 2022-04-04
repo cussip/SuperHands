@@ -1,9 +1,7 @@
 package gemo;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,14 +17,16 @@ public class GemoService {
 		
 		List<GemoMemo> list = new ArrayList<>();
 		
-		String sql = " SELECT * FROM memo ";		
+		String sql = " SELECT m.section_id, m.id, m.title, m.content FROM memo m "
+				+ " INNER JOIN section s "
+				+ " ON m.section_id = s.id "
+				+ " WHERE m.section_id = 2 ";		
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-		System.out.println(sql);
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection(url, "cussip", "xoch2380");
-			Statement st = con.createStatement();
+			Statement st = con.createStatement();		
 			ResultSet rs = st.executeQuery(sql);
 			
 			while(rs.next()) {				
@@ -50,8 +50,7 @@ public class GemoService {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		return list;
 	}
 
@@ -87,8 +86,7 @@ public class GemoService {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		return list;		
 	}
 }

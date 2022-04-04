@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.newlecture.web.entity.Notice;
@@ -20,27 +21,49 @@ public class NoticeService {
 		return 0;
 	}
 	
-	public int pubNoticeAll(int[] ids) {
+	public int pubNoticeAll(int[] oids, int[] cids) {
 		
-		int result = 0;		
-		String params = "";
-		for(int i = 0; i < ids.length; i++) {
-			params += ids[i];
-			if(i < ids.length - 1) {
-				params += ", ";
-			}
+		List<String> oidsList = new ArrayList<>();		
+		for(int i = 0; i < oids.length; i++) {
+			oidsList.add(String.valueOf(oids[i]));
 		}
-		String sql = " UPDATE notice SET pub=1 WHERE id IN (" + params + ") ";	
+
+		List<String> cidsList = new ArrayList<>();		
+		for(int i = 0; i < cids.length; i++) {
+			cidsList.add(String.valueOf(cids[i]));
+		}
+	
+		return pubNoticeAll(oidsList, cidsList);
+	}
+	
+	public int pubNoticeAll(List<String> oids, List<String> cids) {
+		
+		String oidsCSV = String.join(",", oids);
+		String cidsCSV = String.join(",", cids);	
+		
+		return pubNoticeAll(oidsCSV, cidsCSV);
+	}
+	
+	public int pubNoticeAll(String oidsCSV, String cidsCSV) {
+		
+		int result = 0;
+		
+		String sqlOpen = String.format(" UPDATE notice SET pub=1 WHERE id IN (%s) ", oidsCSV);
+		String sqlClose = String.format(" UPDATE notice SET pub=0 WHERE id IN (%s) ", cidsCSV);
+		
 		String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con  = DriverManager.getConnection(url, "cussip", "xoch2380");
-			Statement st = con.createStatement();
+			Statement stOpen = con.createStatement();	
+			result += stOpen.executeUpdate(sqlOpen);
 			
-			result = st.executeUpdate(sql);
-
-			st.close();
+			Statement stClose = con.createStatement();	
+			result += stClose.executeUpdate(sqlClose);
+			
+			stOpen.close();
+			stClose.close();
 			con.close();
 			
 		} catch (ClassNotFoundException e) {
@@ -451,4 +474,6 @@ public class NoticeService {
 		}
 		return result;
 	}
+
+
 }

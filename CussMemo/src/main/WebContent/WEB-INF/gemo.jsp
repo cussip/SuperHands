@@ -16,6 +16,13 @@
 			display: flex;
 			padding: 2px;
 		}
+		a {
+			text-decoration: none;
+			text-align: center;
+		}
+		textarea {
+			text-align: left;
+		}
 	</style>
 </head>
 <body>
@@ -30,10 +37,10 @@
 	</header>
 	
 	<!-- 섹션 분류 공간 -->
-	<form action="/gemo/main" method="post">
+	<form action="/gemo/main" method="get">
 		<div class="sectionspace">
 			<c:forEach var="s" items="${sectionlist}">
-				<input class="form-control" type="button" name="sect" value="${s.title}">
+				<a class="form-control" type="button" href="?sect=${s.id}">${s.title}</a>
 			</c:forEach>
 		</div>
 	</form>
@@ -45,16 +52,14 @@
 		    	<c:forEach var="m" items="${memolist}">
 			    	<tr>
 			    		<td>
-			    			<button type="submit" class="form-control" value="${m.id}">${m.title}</button>
+			    			<a class="form-control" type="button" href="?sect=${m.sectionId}&mem=${m.id}">${m.title}</a>
 			    		</td>
 					</tr> 			 
   			    </c:forEach>  			      			      			      			    
 		    </table>
 		    
 		    <!-- 메모 내용 입력 공간 -->   
-	    	<textarea class="form-control bg-light border rounded-3">
-
-			</textarea>
+	    	<textarea class="form-control bg-light border rounded-3">${content}</textarea>
 	  	</div>
   	</div>
 

@@ -10,7 +10,6 @@ INDEX VERSION 1.131+C:\Users\ishcj\Documents\SuperHands\.metadata\.plugins\org.e
 2701144764.index
 338981538.index
 1926601014.index
-3853070222.index
 1500444764.index
 1675781453.index
 2229886263.index

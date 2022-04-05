@@ -21,13 +21,26 @@ public class Controller extends HttpServlet {
 			throws ServletException, IOException {
 		
 		String section_ = request.getParameter("sect");
+		String memo_ = request.getParameter("mem");
+		
+		String section = "1";
+		if(section_ != null && !section_.equals("")) {
+			section = section_;
+		}
+		
+		String memo = "1";
+		if(memo_ != null && !memo_.equals("")) {
+			memo = memo_;
+		}
 		
 		GemoService service = new GemoService();		
-		List<GemoMemo> memoList = service.getMemoList();
+		List<GemoMemo> memoList = service.getMemoList(Integer.parseInt(section));
 		List<GemoSection> sectionList = service.getSectionList();
+		String content = service.getMemoContent(Integer.parseInt(memo));
 		
 		request.setAttribute("memolist", memoList);
 		request.setAttribute("sectionlist", sectionList);
+		request.setAttribute("content", content);
 		
 		request
 		.getRequestDispatcher("/WEB-INF/gemo.jsp")

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;WebExam/src/main/webapp/css/color_background/background-attatchment.html&apos; to &apos;background-attachment.html&apos;" description="Rename resource &apos;background-attatchment.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/css/color_background/background-attatchment.html" name="background-attachment.html" stamp="1643682046140" updateReferences="true"/>
-</session>

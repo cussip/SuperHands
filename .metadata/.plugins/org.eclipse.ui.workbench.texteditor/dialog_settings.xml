@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="y"/>
+		<item key="selection" value="pollFish"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="selFish"/>
+			<item value="time"/>
+			<item value="fish_"/>
+			<item value="move"/>
+			<item value="newY"/>
+			<item value="newX"/>
+			<item value="Road"/>
+			<item value="context"/>
 			<item value="locY"/>
 			<item value="locX"/>
 			<item value="Y"/>
@@ -15,16 +23,15 @@
 			<item value="loc"/>
 			<item value="param"/>
 			<item value="name"/>
-			<item value="p"/>
-			<item value="input"/>
-			<item value="button"/>
-			<item value="system"/>
-			<item value="memo"/>
-			<item value="mybatis"/>
-			<item value="th"/>
-			<item value="method"/>
 		</list>
 		<list key="replacehistory">
+			<item value="pollFish"/>
+			<item value="dist"/>
+			<item value="minFish"/>
+			<item value="mv"/>
+			<item value="nY"/>
+			<item value="nX"/>
+			<item value="Fish"/>
 			<item value="y"/>
 			<item value="x"/>
 			<item value=""/>
@@ -33,21 +40,14 @@
 			<item value="wt"/>
 			<item value="cmt"/>
 			<item value="page"/>
-			<item value="query"/>
-			<item value="qu"/>
-			<item value="result"/>
-			<item value="W"/>
-			<item value="\&quot;"/>
-			<item value="ch"/>
-			<item value="stu"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="690"/>
 		<item key="DIALOG_Y_ORIGIN" value="315"/>
-		<item key="DIALOG_WIDTH" value="275"/>
-		<item key="DIALOG_HEIGHT" value="370"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_WIDTH" value="319"/>
+		<item key="DIALOG_HEIGHT" value="346"/>
+		<item key="DIALOG_FONT_NAME" value="1|D2Coding|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|-127|3|2|1|49|D2Coding"/>
 	</section>
 	<section name="org.eclipse.wst.html.ui.internal.preferences.ui.HTMLTemplatePreferencePage$HTMLEditTemplateDialog_dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="38"/>

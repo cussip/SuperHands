@@ -1,88 +1,134 @@
 package Backjoon_OJ.Gold3;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-
-//모든 주석은 설명하려는 코드의 상단에 작성한다.
 public class No16236 {
-	
-	static int bs_size = 2;
-	static int bs_eat = 0;
-	static int arrN[][];
-	static int arrT[][];
-	static int N;
-	static final int[] moveX = { -1, 1, 0, 0 };
-	static final int[] moveY = { 0, 0, -1, 1 };
-	
+	private static int[] dx = {1, 0, -1, 0};
+    private static int[] dy = {0, 1, 0, -1};
+    private static int N;
+    private static int[][] map;
+    private static int[][] dist;
+    private static int sharkSize = 2;
+    private static int eatingCount = 0;
+    private static int count = 0;
+    private static int sharkX = -1;
+    private static int sharkY = -1;
+    private static int minX;
+    private static int minY;
+    private static int minDist;
 
-	public static void main(String[] args) throws Exception {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
-		
-		N = Integer.parseInt(br.readLine());		
-		
-		//2차원 배열 생성
-		arrN = new int[N][N];
-		
-		//물고기의 객체럴 저장할 큐 생성
-		Queue<Fish> que = new LinkedList<>();
-		
-		for(int y = 0; y < N; y++) {	
-			st = new StringTokenizer(br.readLine());
-			for(int x = 0; x < N; x++) {
-				arrN[x][y] = Integer.parseInt(st.nextToken());
-				
-				//9가 나오면 상어의 위치이다. 상어 객체를 생성한다. 이때 9가 아닌 초기 덩치 2를 사용한다.
-				if(arrN[x][y] == 9) {
-					Fish bs = new Fish(x, y, bs_size);
-					
-				// 0 < 숫자 < 9 일경우 먹이이미로 먹이 정보를 객체화하여 que에 삽입한다.
-				} else if(arrN[x][y] > 0 && arrN[x][y] < 9) {
-					Fish feed = new Fish(x, y, arrN[x][y]);
-					que.add(feed);
-				}
-				
-			}//End - for(int x)
-		}//End - for(int y)
-		
-		while(true) {
-			
-			//큐에서 먹이를 하나 꺼댄다
-			
-			//먹이와 만날 때까지 탐색한다
-			
-			//먹이를 만나면 먹이까지 걸린 시간을 확인한다.
-			
-			//
-			
-			
-			
-		}
-		
-	}
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        N = Integer.parseInt(br.readLine());
+        map = new int[N + 1][N + 1];
+
+        for (int i = 1; i <= N; i++) {
+        	StringTokenizer st = new StringTokenizer(br.readLine());
+            for (int j = 1; j <= N; j++) {
+                map[i][j] = Integer.parseInt(st.nextToken());
+
+                if (map[i][j] == 9) {
+                    sharkX = i;
+                    sharkY = j;
+                    map[i][j] = 0;
+                }
+            }
+        }
+
+        while (true) {
+            dist = new int[N + 1][N + 1];
+            minX = Integer.MAX_VALUE;
+            minY = Integer.MAX_VALUE;
+            minDist = Integer.MAX_VALUE;
+
+            bfs(sharkX, sharkY);
+
+            if (minX != Integer.MAX_VALUE && minY != Integer.MAX_VALUE) {
+                eatingCount++;
+                map[minX][minY] = 0;
+                sharkX = minX;
+                sharkY = minY;
+                count += dist[minX][minY];
+
+                if (eatingCount == sharkSize) {
+                    sharkSize++;
+                    eatingCount = 0;
+                }
+            } else {
+                break;
+            }
+        }
+
+        System.out.println(count);
+    }
+
+    private static void bfs(int x, int y) {
+        Queue<Point> queue = new LinkedList<>();
+        queue.add(new Point(x, y));
+
+        while (!queue.isEmpty()) {
+            Point p = queue.poll();
+
+            for (int i = 0; i < 4; i++) {
+                int newX = p.x + dx[i];
+                int newY = p.y + dy[i];
+
+                if (isInArea(newX, newY) && isAbleToMove(newX, newY) && dist[newX][newY] == 0) {
+                    dist[newX][newY] = dist[p.x][p.y] + 1;
+
+                    if (isEatable(newX, newY)) {
+                        if (minDist > dist[newX][newY]) {
+                            minDist = dist[newX][newY];
+                            minX = newX;
+                            minY = newY;
+                        } else if (minDist == dist[newX][newY]) {
+                            if (minX == newX) {
+                                if (minY > newY) {
+                                    minX = newX;
+                                    minY = newY;
+                                }
+                            } else if (minX > newX) {
+                                minX = newX;
+                                minY = newY;
+                            }
+                        }
+                    }
+
+                    queue.add(new Point(newX, newY));
+                }
+            }
+        }
+    }
+
+    private static boolean isAbleToMove(int x, int y) {
+        return map[x][y] <= sharkSize;
+    }
+
+    private static boolean isEatable(int x, int y) {
+        return map[x][y] != 0 && map[x][y] < sharkSize;
+    }
+
+    private static boolean isInArea(int x, int y) {
+        return x <= N && x > 0 && y <= N && y > 0;
+    }
+
+
+    private static class Point {
+        private int x;
+        private int y;
+
+        private Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
 }
-
-class Fish {
-	
-	static int x;
-	static int y;
-	static int size;
-
-	public Fish(int x, int y, int size) {
-		this.x = x;
-		this.y = y;
-		this.size = size;
-	}
-}
-
-
-
-
-
 
 

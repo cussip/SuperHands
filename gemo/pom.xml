@@ -35,7 +35,7 @@
   	<dependency>
   		<groupId>org.apache.tomcat</groupId>
   		<artifactId>tomcat-jsp-api</artifactId>
-  		<version>9.0.58</version>
+  		<version>9.0.55</version>
   		<type>pom.sha512</type>
   	</dependency>
   	
